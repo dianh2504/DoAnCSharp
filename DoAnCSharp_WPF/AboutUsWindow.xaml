@@ -1,0 +1,31 @@
+﻿<Window x:Class="DoAnCSharp_WPF.AboutUsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Thông tin phần mềm &amp; Tác giả" Height="520" Width="600" 
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="HƯỚNG DẪN SỬ DỤNG PHẦN MỀM" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#0056b3" Margin="0,0,0,15"/>
+
+        <TextBox x:Name="textBoxHuongDan" Grid.Row="1" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Padding="12" Background="#F8F9FA" BorderBrush="LightGray" FontSize="14"/>
+
+        <GroupBox Grid.Row="2" Header="Thông tin tác giả" Margin="0,15,0,0" Padding="12" FontSize="13">
+            <StackPanel>
+                <TextBlock Margin="0,3">
+                    <Run FontWeight="Bold">Phát triển bởi:</Run> Nhóm 2 thành viên
+                </TextBlock>
+                <TextBlock Margin="0,3">
+                    <Run FontWeight="Bold">Liên hệ &amp; Chi tiết:</Run> 
+                    <Hyperlink x:Name="linkThongTin" NavigateUri="https://courses.hcmus.edu.vn/user/profile.php?id=25130" RequestNavigate="Hyperlink_RequestNavigate">
+                        Nhấp để xem hồ sơ nhóm trưởng
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>
