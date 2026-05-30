@@ -1,11 +1,11 @@
 ﻿Phần mềm quản lý sinh viên
 
-I.Mô tả dự án
+I. Mô tả dự án
 Ứng dụng được xây dựng giúp người dùng quản lý sinh viên một cách tốt hơn.
 Giải quyết bài toán liên quan đến nhập liệu, kết nối với một cơ sở dữ liệu để lưu trữ dữ liệu.
 Phần mềm được viết bằng C# kết nối với cơ sở dữ liệu thông qua XAMPP.
 
-II.ác tính năng
+II. Các tính năng
 Xem, thêm, sửa, xóa thông tin sinh viên.
 Quản lý trạng thái kích hoạt tự động của cơ sở dữ liệu SQL.
 Ghi và đọc danh sách sinh viên từ cơ sở dữ liệu
@@ -29,8 +29,8 @@ Các bước cài đặt:
 IV. Hướng dẫn sử dụng
 A. Tương tác với đối tượng sinh viên:
 1. Thêm sinh viên - Nhấn nút thêm - lúc này chương trinh sẽ xóa sạch thông tin trên ô nhập liệu - Nhập liệu - Nhấn nút lưu - Giữ nguyên chức năng lưu.
-2. Chỉnh sửa sinh viên - Nhấn vào nút chỉnh sửa - Nhấn vào sinh viên cần sửa chửa thông tin lên bảng - Sửa thông tin sinh viên - Nhấn nút lưu - Giứ nguyên chức năng chỉnh sửa.
-3. Xóa sinh viên - Nhấn nút xóa - Nhấn vào sinh viên cần xóa ở bảng - Nhấn nút lưu - Giữ nguyên chức năng xóa.
+2. Chỉnh sửa sinh viên - Nhấn vào nút chỉnh sửa - Nhấn vào sinh viên cần sửa chửa thông tin trên bảng - Sửa thông tin sinh viên - Nhấn nút lưu - Giứ nguyên chức năng chỉnh sửa.
+3. Xóa sinh viên - Nhấn nút xóa - Nhấn vào sinh viên cần xóa trên bảng - Nhấn nút lưu - Giữ nguyên chức năng xóa.
 
 B. Tương tác với BD.
 Trên thanh menubar - Nhấn vào SQL - Nhấn vào Open SQL để kết nối với cơ sở dữ liệu
@@ -41,7 +41,8 @@ C. Tương tác với File
 Trên thanh menubar - Nhấn vào File - Nhấn vào Open để load dữ liệu từ file lên chương trình.
 Trên thanh menubar - Nhấn vào File - Nhấn vào Save để load dữ liệu object xuống file.
 Trên thanh menubar - Nhấn vào File - Nhấn vào Close để thoát file đang edit và tạo một file mới.
+Trên thanh menubar - Nhấn vào File - Nhấn vào Export - Nhấn vào .pdf để xuất từ file đã lưu sang pdf (Lưu ý: Phải bấm Save file đã chỉnh sửa sau đó mới có thể Export)
 
-V.Hướng phát triển thêm dự tính.
+V. Hướng phát triển thêm dự tính.
 
 

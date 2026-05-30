@@ -10,7 +10,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="HƯỚNG DẪN SỬ DỤNG PHẦN MỀM" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#0056b3" Margin="0,0,0,15"/>
+        <TextBlock Grid.Row="0" Text="GIỚI THIỆU VÀ HƯỚNG DẪN SỬ DỤNG PHẦN MỀM" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#0056b3" Margin="0,0,0,15"/>
 
         <TextBox x:Name="textBoxHuongDan" Grid.Row="1" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Padding="12" Background="#F8F9FA" BorderBrush="LightGray" FontSize="14"/>
 
@@ -19,10 +19,22 @@
                 <TextBlock Margin="0,3">
                     <Run FontWeight="Bold">Phát triển bởi:</Run> Nhóm 2 thành viên
                 </TextBlock>
+
                 <TextBlock Margin="0,3">
-                    <Run FontWeight="Bold">Liên hệ &amp; Chi tiết:</Run> 
-                    <Hyperlink x:Name="linkThongTin" NavigateUri="https://courses.hcmus.edu.vn/user/profile.php?id=25130" RequestNavigate="Hyperlink_RequestNavigate">
-                        Nhấp để xem hồ sơ nhóm trưởng
+                    <Run FontWeight="Bold">Liên hệ &amp; Chi tiết:</Run>
+                </TextBlock>
+
+                <TextBlock Margin="15,3,0,3">
+                    • Sinh viên thực hiện 1: 
+                    <Hyperlink NavigateUri="https://courses.hcmus.edu.vn/user/profile.php?id=25130" RequestNavigate="Hyperlink_RequestNavigate">
+                        Nhấp để xem hồ sơ
+                    </Hyperlink>
+                </TextBlock>
+
+                <TextBlock Margin="15,3,0,3">
+                    • Sinh viên thực hiện 2: 
+                    <Hyperlink NavigateUri="https://courses.hcmus.edu.vn/user/profile.php" RequestNavigate="Hyperlink_RequestNavigate">
+                        Nhấp để xem hồ sơ
                     </Hyperlink>
                 </TextBlock>
             </StackPanel>

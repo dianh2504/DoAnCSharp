@@ -1,7 +1,7 @@
 ﻿<Window x:Class="DoAnCSharp_WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Quản Lý Sinh Viên - Phiên bản WPF" Height="850" Width="1050" WindowStartupLocation="CenterScreen">
+        Title="Quản Lý Sinh Viên" Height="850" Width="1050" WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,6 +16,9 @@
             <MenuItem Header="File">
                 <MenuItem x:Name="saveFileMenu" Header="Save"/>
                 <MenuItem x:Name="openFileMenu" Header="Open"/>
+                <MenuItem Header="Export">
+                    <MenuItem x:Name="exportPdfMenu" Header=".pdf"/>
+                </MenuItem>
                 <MenuItem x:Name="closeFileMenu" Header="Close"/>
             </MenuItem>
             <MenuItem Header="SQL">

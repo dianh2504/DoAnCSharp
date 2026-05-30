@@ -149,7 +149,6 @@ namespace DoAnCSharp_WPF.Models
             }
             catch (Exception ex)
             {
-                // In lỗi ra màn hình để bạn dễ debug nếu câu lệnh truyền vào bị sai cú pháp SQL
                 Console.WriteLine("Lỗi truy vấn selectByCondition: " + ex.Message);
             }
 
