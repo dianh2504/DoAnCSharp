@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\VS project\\K\u1EF9 thu\u1EADt l\u1EADp tr\u00ECnh n\u00E2ng cao\\DoAnCSharp_WPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FEF423A4-BBEA-3818-41EA-388C44595D78}|DoAnCSharp_WPF\\DoAnCSharp_WPF.csproj|d:\\vs project\\k\u1EF9 thu\u1EADt l\u1EADp tr\u00ECnh n\u00E2ng cao\\doancsharp_wpf\\doancsharp_wpf\\huongdansudung.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{FEF423A4-BBEA-3818-41EA-388C44595D78}|DoAnCSharp_WPF\\DoAnCSharp_WPF.csproj|solutionrelative:doancsharp_wpf\\huongdansudung.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FEF423A4-BBEA-3818-41EA-388C44595D78}|DoAnCSharp_WPF\\DoAnCSharp_WPF.csproj|d:\\vs project\\k\u1EF9 thu\u1EADt l\u1EADp tr\u00ECnh n\u00E2ng cao\\doancsharp_wpf\\doancsharp_wpf\\model\\qlsvmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FEF423A4-BBEA-3818-41EA-388C44595D78}|DoAnCSharp_WPF\\DoAnCSharp_WPF.csproj|solutionrelative:doancsharp_wpf\\model\\qlsvmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FEF423A4-BBEA-3818-41EA-388C44595D78}|DoAnCSharp_WPF\\DoAnCSharp_WPF.csproj|d:\\vs project\\k\u1EF9 thu\u1EADt l\u1EADp tr\u00ECnh n\u00E2ng cao\\doancsharp_wpf\\doancsharp_wpf\\model\\tinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FEF423A4-BBEA-3818-41EA-388C44595D78}|DoAnCSharp_WPF\\DoAnCSharp_WPF.csproj|solutionrelative:doancsharp_wpf\\model\\tinh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEF423A4-BBEA-3818-41EA-388C44595D78}|DoAnCSharp_WPF\\DoAnCSharp_WPF.csproj|d:\\vs project\\k\u1EF9 thu\u1EADt l\u1EADp tr\u00ECnh n\u00E2ng cao\\doancsharp_wpf\\doancsharp_wpf\\huongdansudung.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{FEF423A4-BBEA-3818-41EA-388C44595D78}|DoAnCSharp_WPF\\DoAnCSharp_WPF.csproj|solutionrelative:doancsharp_wpf\\huongdansudung.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,41 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "QLSVModel.cs",
               "DocumentMoniker": "D:\\VS project\\K\u1EF9 thu\u1EADt l\u1EADp tr\u00ECnh n\u00E2ng cao\\DoAnCSharp_WPF\\DoAnCSharp_WPF\\model\\QLSVModel.cs",
               "RelativeDocumentMoniker": "DoAnCSharp_WPF\\model\\QLSVModel.cs",
               "ToolTip": "D:\\VS project\\K\u1EF9 thu\u1EADt l\u1EADp tr\u00ECnh n\u00E2ng cao\\DoAnCSharp_WPF\\DoAnCSharp_WPF\\model\\QLSVModel.cs",
               "RelativeToolTip": "DoAnCSharp_WPF\\model\\QLSVModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-30T09:26:29.238Z"
+              "WhenOpened": "2026-05-30T09:26:29.238Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Tinh.cs",
               "DocumentMoniker": "D:\\VS project\\K\u1EF9 thu\u1EADt l\u1EADp tr\u00ECnh n\u00E2ng cao\\DoAnCSharp_WPF\\DoAnCSharp_WPF\\model\\Tinh.cs",
               "RelativeDocumentMoniker": "DoAnCSharp_WPF\\model\\Tinh.cs",
               "ToolTip": "D:\\VS project\\K\u1EF9 thu\u1EADt l\u1EADp tr\u00ECnh n\u00E2ng cao\\DoAnCSharp_WPF\\DoAnCSharp_WPF\\model\\Tinh.cs",
               "RelativeToolTip": "DoAnCSharp_WPF\\model\\Tinh.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG4AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-30T07:52:37.287Z"
+              "WhenOpened": "2026-05-30T07:52:37.287Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "HuongDanSuDung.txt",
               "DocumentMoniker": "D:\\VS project\\K\u1EF9 thu\u1EADt l\u1EADp tr\u00ECnh n\u00E2ng cao\\DoAnCSharp_WPF\\DoAnCSharp_WPF\\HuongDanSuDung.txt",
               "RelativeDocumentMoniker": "DoAnCSharp_WPF\\HuongDanSuDung.txt",
               "ToolTip": "D:\\VS project\\K\u1EF9 thu\u1EADt l\u1EADp tr\u00ECnh n\u00E2ng cao\\DoAnCSharp_WPF\\DoAnCSharp_WPF\\HuongDanSuDung.txt",
               "RelativeToolTip": "DoAnCSharp_WPF\\HuongDanSuDung.txt",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2026-05-30T10:20:02.358Z",
               "EditorCaption": ""
