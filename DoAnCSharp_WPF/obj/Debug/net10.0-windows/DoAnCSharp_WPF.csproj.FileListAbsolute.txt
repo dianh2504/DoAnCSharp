@@ -25,3 +25,4 @@ D:\VS project\Kỹ thuật lập trình nâng cao\DoAnCSharp_WPF\DoAnCSharp_WPF\
 D:\VS project\Kỹ thuật lập trình nâng cao\DoAnCSharp_WPF\DoAnCSharp_WPF\bin\Debug\net10.0-windows\HuongDanSuDung.txt
 D:\VS project\Kỹ thuật lập trình nâng cao\DoAnCSharp_WPF\DoAnCSharp_WPF\obj\Debug\net10.0-windows\AboutUsWindow.baml
 D:\VS project\Kỹ thuật lập trình nâng cao\DoAnCSharp_WPF\DoAnCSharp_WPF\obj\Debug\net10.0-windows\AboutUsWindow.g.cs
+D:\VS project\Kỹ thuật lập trình nâng cao\DoAnCSharp_WPF\DoAnCSharp_WPF\obj\Debug\net10.0-windows\DoAnCSharp_WPF.sourcelink.json
