@@ -18,7 +18,7 @@ namespace DoAnCSharp_WPF
         {
             try
             {
-                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HuongDanSuDung.txt");
+                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "intructionDocument/HuongDanSuDung.txt");
 
                 if (File.Exists(filePath))
                 {
