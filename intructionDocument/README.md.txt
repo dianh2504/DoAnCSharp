@@ -12,7 +12,7 @@ Xem, thêm, sửa, xóa thông tin sinh viên.
 Quản lý trạng thái kích hoạt tự động của cơ sở dữ liệu SQL.
 Ghi và đọc danh sách sinh viên từ cơ sở dữ liệu
 Ghi và đọc danh sách sinh viên từ file
-Ghi log tự động xoay vòng bằng Serilog.
+Ghi log tự động xoay vòng bằng Serilog. 
 
 
 III. Hướng dẫn cài đặt & Khởi chạy (Installation & Setup)

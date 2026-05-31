@@ -33,11 +33,13 @@ namespace DoAnCSharp_WPF
             this.viewQLSV.buttonTim.Click += nhanNutTimKiem;
             this.viewQLSV.saveFileMenu.Click += nhanNutSaveFile;
             this.viewQLSV.openFileMenu.Click += nhanNutOpenFile;
+            this.viewQLSV.exportPdfMenu.Click += nhanNutExportPdf;
             this.viewQLSV.closeFileMenu.Click += nhanNutCloseFile;
             this.viewQLSV.openSQLMenu.Click += nhanNutOpenSQLMenu;
             this.viewQLSV.loadSQLMenu.Click += nhanNutLoadSQLMenu;
             this.viewQLSV.closeSQLMenu.Click += nhanNutCloseSQLMenu;
             this.viewQLSV.aboutUsMenu.Click += nhanNutAboutUs;
+            this.viewQLSV.Closing += KiemTraTruocKhiThoat;
         }
         private void LoadInitialData()
         {
@@ -115,15 +117,28 @@ namespace DoAnCSharp_WPF
         }
         private void ThucHienThemSinhVien()
         {
+            if (string.IsNullOrWhiteSpace(viewQLSV.textBoxMaSinhVienThem.Text) ||
+         string.IsNullOrWhiteSpace(viewQLSV.textBoxHoVaTen.Text) ||
+         viewQLSV.comboBoxQueQuanThem.SelectedItem == null ||
+         string.IsNullOrWhiteSpace(viewQLSV.textBoxNgay.Text) ||
+         string.IsNullOrWhiteSpace(viewQLSV.textBoxThang.Text) ||
+         string.IsNullOrWhiteSpace(viewQLSV.textBoxNam.Text) ||
+         (viewQLSV.radioButtonNam.IsChecked == false && viewQLSV.radioButtonNu.IsChecked == false) ||
+         string.IsNullOrWhiteSpace(viewQLSV.textBoxDiemThuongXuyen1.Text) ||
+         string.IsNullOrWhiteSpace(viewQLSV.textBoxDiemThuongXuyen2.Text) ||
+         string.IsNullOrWhiteSpace(viewQLSV.textBoxDiemThuongXuyen3.Text) ||
+         string.IsNullOrWhiteSpace(viewQLSV.textBoxDiemGiuaKi.Text) ||
+         string.IsNullOrWhiteSpace(viewQLSV.textBoxDiemCuoiKi.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ tất cả thông tin trước khi lưu!", "Thiếu thông tin", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             try
             {
                 int maSinhVien = int.Parse(viewQLSV.textBoxMaSinhVienThem.Text.Trim());
                 this.modelQLSV.kiemTraTrungMaSinhVien(maSinhVien);
-
                 string hoVaTen = viewQLSV.textBoxHoVaTen.Text.Trim();
-
                 Tinh queQuan = (Tinh)viewQLSV.comboBoxQueQuanThem.SelectedItem;
-
                 bool gioiTinh = viewQLSV.radioButtonNam.IsChecked == true;
                 this.viewQLSV.kiemTraCheckedGioiTinh();
                 int ngay = int.Parse(viewQLSV.textBoxNgay.Text.Trim());
@@ -244,6 +259,73 @@ namespace DoAnCSharp_WPF
                 }
             }
         }
+        private void nhanNutExportPdf(object sender, RoutedEventArgs e)
+        {
+            if (this.bindingListSV == null || this.bindingListSV.Count == 0)
+            {
+                MessageBox.Show("Danh sách sinh viên hiện đang trống, không thể xuất PDF!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog();
+            saveFileDialog.Filter = "PDF Document (*.pdf)|*.pdf";
+            saveFileDialog.DefaultExt = "pdf";
+            saveFileDialog.FileName = "DanhSachSinhVien_Export";
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+                    iTextSharp.text.Document document = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 15f, 15f, 25f, 25f);
+                    iTextSharp.text.pdf.PdfWriter.GetInstance(document, new System.IO.FileStream(saveFileDialog.FileName, System.IO.FileMode.Create));
+                    document.Open();
+                    string sysFontPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), "Fonts", "Arial.ttf");
+                    iTextSharp.text.pdf.BaseFont bf = iTextSharp.text.pdf.BaseFont.CreateFont(sysFontPath, iTextSharp.text.pdf.BaseFont.IDENTITY_H, iTextSharp.text.pdf.BaseFont.EMBEDDED);
+                    iTextSharp.text.Font fontTitle = new iTextSharp.text.Font(bf, 18, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.BLUE);
+                    iTextSharp.text.Font fontHeader = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.WHITE);
+                    iTextSharp.text.Font fontBody = new iTextSharp.text.Font(bf, 9, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Paragraph title = new iTextSharp.text.Paragraph("DANH SÁCH THÔNG TIN & ĐIỂM SỐ SINH VIÊN", fontTitle);
+                    title.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+                    title.SpacingAfter = 20f;
+                    document.Add(title);
+                    iTextSharp.text.pdf.PdfPTable table = new iTextSharp.text.pdf.PdfPTable(10);
+                    table.WidthPercentage = 100;
+                    float[] columnWidths = new float[] { 4f, 8f, 3f, 5f, 5f, 2.5f, 2.5f, 2.5f, 2.5f, 2.5f };
+                    table.SetWidths(columnWidths);
+                    string[] headers = { "MSSV", "Họ và Tên", "Phái", "Quê Quán", "Ngày Sinh", "TX1", "TX2", "TX3", "GK", "CK" };
+                    foreach (string headerText in headers)
+                    {
+                        iTextSharp.text.pdf.PdfPCell cell = new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(headerText, fontHeader));
+                        cell.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+                        cell.VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE;
+                        cell.BackgroundColor = new iTextSharp.text.BaseColor(50, 50, 50);
+                        cell.Padding = 6;
+                        table.AddCell(cell);
+                    }
+                    foreach (var sv in this.bindingListSV)
+                    {
+                        table.AddCell(new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(sv.MaSinhVien.ToString(), fontBody)) { HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, Padding = 4 });
+                        table.AddCell(new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(sv.TenSinhVien, fontBody)) { HorizontalAlignment = iTextSharp.text.Element.ALIGN_LEFT, Padding = 4 });
+                        table.AddCell(new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(sv.GioiTinhText, fontBody)) { HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, Padding = 4 });
+                        table.AddCell(new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(sv.QueQuan != null ? sv.QueQuan.TenTinh : "", fontBody)) { HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, Padding = 4 });
+                        table.AddCell(new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(sv.NgaySinh.ToString("dd/MM/yyyy"), fontBody)) { HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, Padding = 4 });
+                        table.AddCell(new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(sv.DiemThuongXuyen1.ToString("0.#"), fontBody)) { HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, Padding = 4 });
+                        table.AddCell(new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(sv.DiemThuongXuyen2.ToString("0.#"), fontBody)) { HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, Padding = 4 });
+                        table.AddCell(new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(sv.DiemThuongXuyen3.ToString("0.#"), fontBody)) { HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, Padding = 4 });
+                        table.AddCell(new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(sv.DiemGiuaKi.ToString("0.#"), fontBody)) { HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, Padding = 4 });
+                        table.AddCell(new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(sv.DiemCuoiKi.ToString("0.#"), fontBody)) { HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, Padding = 4 });
+                    }
+                    document.Add(table);
+                    document.Close();
+
+                    MessageBox.Show("Xuất tệp PDF thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi trong quá trình xuất tệp PDF: " + ex.Message, "Lỗi hệ thống", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
         private void nhanNutCloseFile(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Bạn có chắc muốn đóng danh sách hiện tại không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -253,6 +335,29 @@ namespace DoAnCSharp_WPF
                 this.bindingListSV.Clear();
                 this.viewQLSV.xoaFormThongTin();
                 this.modelQLSV.ChucNang = "";
+            }
+        }
+        private void KiemTraTruocKhiThoat(object sender, CancelEventArgs e)
+        {
+            bool dangNhapDo = !string.IsNullOrWhiteSpace(this.viewQLSV.textBoxMaSinhVienThem.Text)
+                           || this.modelQLSV.ChucNang == "Them"
+                           || this.modelQLSV.ChucNang == "ChinhSua";
+
+            if (dangNhapDo)
+            {
+                MessageBoxResult result = MessageBox.Show(
+                    "Bạn chưa lưu thông tin vừa nhập.\nBạn có chắc chắn muốn thoát phần mềm và những thông tin chưa lưu sẽ bị loại bỏ?",
+                    "Cảnh báo dữ liệu chưa lưu",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
+                if (result == MessageBoxResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.modelQLSV.ChucNang = "";
+                }
             }
         }
         private void nhanNutOpenSQLMenu(object sender, RoutedEventArgs e)
