@@ -1,10 +1,12 @@
 ﻿using DoAnCSharp_WPF.Models;
+using Microsoft.Win32;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Media;
@@ -84,6 +86,7 @@ namespace DoAnCSharp_WPF
             if (this.modelQLSV.ChucNang == "Them")
             {
                 this.ThucHienThemSinhVien();
+                Log.Information($"USER - Thực hiện thêm sinh viên");
             }
             else if (this.modelQLSV.ChucNang == "ChinhSua")
             {
@@ -92,6 +95,7 @@ namespace DoAnCSharp_WPF
                     SinhVien svCanSua = (SinhVien)this.viewQLSV.table.SelectedItem;
                     this.bindingListSV.Remove(svCanSua);
                     this.ThucHienThemSinhVien();
+                    Log.Information($"USER - Thực hiện chỉnh sửa sinh viên");
                 }
             }
             else if (this.modelQLSV.ChucNang == "Xoa")
@@ -104,10 +108,9 @@ namespace DoAnCSharp_WPF
                     {
                         tuongTacSQL(svCanXoa);
                     }
+                    Log.Information($"USER - Thực hiện xóa sinh viên");
                 }
             }
-
-            this.viewQLSV.batButtonLuu();
         }
         private void nhanNutAboutUs(object sender, RoutedEventArgs e)
         {
@@ -222,6 +225,7 @@ namespace DoAnCSharp_WPF
                     string jsonString = JsonSerializer.Serialize(this.modelQLSV.DsSinhVien);
                     File.WriteAllText(saveFileDialog.FileName, jsonString);
                     MessageBox.Show("Lưu dữ liệu thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Log.Information($"USER - Thực hiện lưu file {saveFileDialog.FileName}");
                 }
                 catch (Exception ex)
                 {
@@ -252,6 +256,7 @@ namespace DoAnCSharp_WPF
 
                         MessageBox.Show("Đọc dữ liệu danh sách thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
+                    Log.Information($"USER - Thực hiện mở file {openFileDialog.FileName}");
                 }
                 catch (Exception ex)
                 {
@@ -319,6 +324,7 @@ namespace DoAnCSharp_WPF
                     document.Close();
 
                     MessageBox.Show("Xuất tệp PDF thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Log.Information("USER - Xuất file pdf");
                 }
                 catch (Exception ex)
                 {
@@ -336,6 +342,7 @@ namespace DoAnCSharp_WPF
                 this.viewQLSV.xoaFormThongTin();
                 this.modelQLSV.ChucNang = "";
             }
+            Log.Information("USER - Thực hiện close file");
         }
         private void KiemTraTruocKhiThoat(object sender, CancelEventArgs e)
         {
@@ -379,6 +386,7 @@ namespace DoAnCSharp_WPF
                 System.Threading.Thread.Sleep(3000);
                 MessageBox.Show("Đã kích hoạt Apache và MySQL", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.modelQLSV.TrangThaiSQL = true;
+                Log.Information("USER - Kết nối cơ sở dữ liệu");
             }
             catch (Exception ex)
             {
@@ -395,6 +403,7 @@ namespace DoAnCSharp_WPF
             {
                 this.bindingListSV.Add(sv);
             }
+            Log.Information("USER - Tải dữ liệu từ cơ sở dữ liệu");
         }
 
         private void nhanNutCloseSQLMenu(object sender, RoutedEventArgs e)
@@ -410,17 +419,25 @@ namespace DoAnCSharp_WPF
             {
                 MessageBox.Show("Lỗi khi tắt apache và SQL: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            Log.Information("USER - Tắt cơ sở dữ liệu");
         }
 
         private void tuongTacSQL(SinhVien sv)
         {
-            if (this.modelQLSV.ChucNang == "Them" || this.modelQLSV.ChucNang == "ChinhSua")
+            if (this.modelQLSV.ChucNang == "Them")
             {
                 sinhVienDao.getInstance().insert(sv);
+                Log.Information("USER - Thêm sinh viên vào cơ sở dữ liệu");
+            } 
+            else if (this.modelQLSV.ChucNang == "ChinhSua")
+            {
+                sinhVienDao.getInstance().update(sv);
+                Log.Information("USER - Chỉnh sửas sinh viên trong cơ sở dữ liệu");
             }
             else if (this.modelQLSV.ChucNang == "Xoa")
             {
                 sinhVienDao.getInstance().delete(sv);
+                Log.Information("USER - Xóa sinh viên khỏi cơ sở dữ liệu");
             }
         }
     }

@@ -1,0 +1,11 @@
+2026-05-31 18:01:23.609 [INF] - Ứng dụng Quản lý Sinh viên bắt đầu khởi chạy trên nền tảng WPF.
+2026-05-31 18:02:17.418 [INF] - USER - Thực hiện thêm sinh viên
+2026-05-31 18:02:44.259 [INF] - Ứng dụng kết thúc.
+2026-05-31 18:10:47.913 [INF] - Ứng dụng Quản lý Sinh viên bắt đầu khởi chạy trên nền tảng WPF.
+2026-05-31 18:10:53.705 [INF] - Ứng dụng kết thúc.
+2026-05-31 18:14:36.377 [INF] - Ứng dụng Quản lý Sinh viên bắt đầu khởi chạy trên nền tảng WPF.
+2026-05-31 18:14:40.236 [INF] - Ứng dụng kết thúc.
+2026-05-31 18:20:22.073 [INF] - Ứng dụng Quản lý Sinh viên bắt đầu khởi chạy trên nền tảng WPF.
+2026-05-31 18:20:40.346 [INF] - Ứng dụng kết thúc.
+2026-05-31 18:21:27.323 [INF] - Ứng dụng Quản lý Sinh viên bắt đầu khởi chạy trên nền tảng WPF.
+2026-05-31 18:21:41.831 [INF] - Ứng dụng kết thúc.

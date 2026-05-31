@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DoAnCSharp_WPF.Models;
+using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace DoAnCSharp_WPF
@@ -54,14 +56,6 @@ namespace DoAnCSharp_WPF
             buttonThem.Background = SystemColors.ControlBrush;
             buttonChinhSua.Background = SystemColors.ControlBrush;
         }
-
-        public void batButtonLuu()
-        {
-            buttonThem.Background = SystemColors.ControlBrush;
-            buttonChinhSua.Background = SystemColors.ControlBrush;
-            buttonXoa.Background = SystemColors.ControlBrush;
-        }
-
         public void batButtonHuyBo()
         {
             buttonChinhSua.Background = SystemColors.ControlBrush;
@@ -83,6 +77,50 @@ namespace DoAnCSharp_WPF
             if (radioButtonNam.IsChecked == false && radioButtonNu.IsChecked == false)
             {
                 throw new Exception("Chưa chọn giới tính cho sinh viên!");
+            }
+        }
+        private void table_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (table.SelectedItem == null) return;
+
+            this.xoaFormThongTin();
+
+            var rowData = table.SelectedItem as DoAnCSharp_WPF.Models.SinhVien;
+
+            if (rowData != null)
+            {
+                this.textBoxMaSinhVienThem.Text = rowData.MaSinhVien.ToString();
+                this.textBoxHoVaTen.Text = rowData.TenSinhVien; 
+
+                if (rowData.GioiTinhText == "Nam")
+                {
+                    this.radioButtonNam.IsChecked = true;
+                }
+                else
+                {
+                    this.radioButtonNu.IsChecked = true;
+                }
+
+                if (rowData.QueQuan != null)
+                {
+                    this.comboBoxQueQuanThem.Text = rowData.QueQuan.TenTinh;
+                }
+
+                string ngaySinhFull = rowData.NgaySinh.ToString("dd/MM/yyyy");
+                string[] mangNgaySinh = ngaySinhFull.Split('/');
+
+                if (mangNgaySinh.Length == 3)
+                {
+                    this.textBoxNgay.Text = mangNgaySinh[0];
+                    this.textBoxThang.Text = mangNgaySinh[1];
+                    this.textBoxNam.Text = mangNgaySinh[2];
+                }
+
+                this.textBoxDiemThuongXuyen1.Text = rowData.DiemThuongXuyen1.ToString();
+                this.textBoxDiemThuongXuyen2.Text = rowData.DiemThuongXuyen2.ToString();
+                this.textBoxDiemThuongXuyen3.Text = rowData.DiemThuongXuyen3.ToString();
+                this.textBoxDiemGiuaKi.Text = rowData.DiemGiuaKi.ToString();
+                this.textBoxDiemCuoiKi.Text = rowData.DiemCuoiKi.ToString();
             }
         }
     }

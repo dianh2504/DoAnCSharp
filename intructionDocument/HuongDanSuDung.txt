@@ -33,7 +33,7 @@ A. Tương tác với đối tượng sinh viên:
 3. Xóa sinh viên - Nhấn nút xóa - Nhấn vào sinh viên cần xóa trên bảng - Nhấn nút lưu - Giữ nguyên chức năng xóa.
 
 B. Tương tác với BD.
-Trên thanh menubar - Nhấn vào SQL - Nhấn vào Open SQL để kết nối với cơ sở dữ liệu
+Trên thanh menubar - Nhấn vào SQL - Nhấn vào Open SQL để kết nối với cơ sở dữ liệu - Đường dẫn của Xampp là D:\Tool\Xampp sửa lại code nếu bạn lưu ở dường dẫn khac hoặc chọn một phần mềm khác thì sửa code phần này.
 Trên thanh menubar - Nhấn vào SQL - Nhấn vào Load SQL để lấy dữ liệu từ cơ sở dữ liệu load lên phần mềm.
 Trên thanh menubar - Nhấn vào SQL - Nhấn vào Close SQL để tắt liên kết với cơ sở dữ liệu hoặc sẽ tự tắt khi người dùng đang bật khi close phần mềm.
 
@@ -44,5 +44,5 @@ Trên thanh menubar - Nhấn vào File - Nhấn vào Close để thoát file đa
 Trên thanh menubar - Nhấn vào File - Nhấn vào Export - Nhấn vào .pdf để xuất từ file đã lưu sang pdf (Lưu ý: Phải bấm Save file đã chỉnh sửa sau đó mới có thể Export)
 
 V. Hướng phát triển thêm dự tính.
-
+Phát triển cơ sở dữ liệu dể tiếp cận hơn, hoàn thiện chức năng ghi log, phát triển thêm tính trung bình, thêm nhiều môn học, thống kê GPA, ...
 
